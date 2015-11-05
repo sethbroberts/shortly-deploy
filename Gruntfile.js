@@ -72,10 +72,18 @@ module.exports = function(grunt) {
       }
     },
 
-    shell: {
-      prodServer: {
+    'heroku-deploy' : {
+      production: {
+        deployBranch: 'master'
       }
     },
+
+    shell: {
+      target: {
+        command: 'git push heroku master'
+      }
+    }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -107,6 +115,8 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('default', ['watch']);
+
+  grunt.registerTask('heroku-deploy', ['shell']);
   
   grunt.registerTask('test', [
     'mochaTest'
@@ -139,7 +149,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('heroku:production', 'build');
-
-  grunt.registerTask('heroku-deploy');
 
 };
