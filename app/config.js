@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 mongoURI = process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'mongodb://localhost/shortlydb';
 //mongoose.connect(mongoURI);
-mongoose.connect('mongodb://hackreactor:hackreactor@ds049854.mongolab.com:49854/heroku_954g2v0b')'
+mongoose.connect('mongodb://hackreactor:hackreactor@ds049854.mongolab.com:49854/heroku_954g2v0b')
 
 
 var db = mongoose.connection;
